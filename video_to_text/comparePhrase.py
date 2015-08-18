@@ -31,6 +31,7 @@ for p in speech:
 		phrase2 = cleanSpeech.pop().split()
 		phrase1 = cleanSpeech.pop().split()
 		print phrase1, phrase2
+	#Not working yet
 	for x in phrase2:
 		if x not in phrase1:
 			cleanSpeech.append(x)
