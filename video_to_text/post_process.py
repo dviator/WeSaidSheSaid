@@ -4,6 +4,7 @@
 import tt2srt
 import sys
 import os
+import cPickle as pickle
 
 def is_number(s):
     try:
@@ -42,7 +43,8 @@ for line in text:
         sentences.append(tmp)
         tmp = ""
 
-print sentences[0:10]
+pickle.dump( sentences, open( "speech.p", "wb" ) )
+print sentences[0:30]
 # print text[0:30]
 
 srt_file.close()
