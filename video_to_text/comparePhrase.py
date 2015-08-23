@@ -41,88 +41,57 @@ cleanSpeech = []
 # 		if x not in phrase1:
 # 			cleanSpeech.append(x)
 
-speech_recurse_1 = []
-speech_recurse_2 = []
-speech_recurse_3 = []
+### Make the composite phrase into the new "1st phrase" of the next comparison
 
-for phrase in speech:
-	phraseA = speech.pop().split()
-	phraseB = speech.pop().split()
-	composite_phrase = []
-	count = 0
-	tmp_count = 0
-	flag = False
-	if (len(phraseA) > 1) and (len(phraseB) > 1):
-		for token in reversed(phraseB):
-			count += 1
-			if token == phraseA[0]:
-				tmp_count = count
-				if flag == True:
-					break
-				flag = True
-		composite_phrase = phraseB[0:len(phraseB) - tmp_count] + phraseA
-	speech_recurse_1.append(" ".join(composite_phrase))
+sub_speech = speech[0: len(speech)]
+clean_speech = []
+iter_count = 0
 
-for phrase in speech_recurse_1:
-	phraseB = speech_recurse_1.pop().split()
-	phraseA = speech_recurse_1.pop().split()
-	composite_phrase = []
-	count = 0
-	tmp_count = 0
-	flag = False
-	if (len(phraseA) > 1) and (len(phraseB) > 1):
-		for token in reversed(phraseB):
-			count += 1
-			if token == phraseA[0]:
-				tmp_count = count
-				if flag == True:
-					break
-				flag = True
-		composite_phrase = phraseB[0:len(phraseB) - tmp_count] + phraseA
-	speech_recurse_2.append(" ".join(composite_phrase))
+sub_speech.reverse()
 
-for phrase in speech_recurse_2:
-	phraseA = speech_recurse_2.pop().split()
-	phraseB = speech_recurse_2.pop().split()
-	composite_phrase = []
-	count = 0
-	tmp_count = 0
-	flag = False
-	if (len(phraseA) > 1) and (len(phraseB) > 1):
-		for token in reversed(phraseB):
-			count += 1
-			if token == phraseA[0]:
-				tmp_count = count
-				if flag == True:
-					break
-				flag = True
-		composite_phrase = phraseB[0:len(phraseB) - tmp_count] + phraseA
-	speech_recurse_3.append(" ".join(composite_phrase))
+for phrase in sub_speech:
+	if ((phrase != ' ') and (phrase != '')):
+		clean_speech.append(phrase)
+		iter_count += 1
+	if ( len(clean_speech) == 2):
+		phraseA = clean_speech.pop().split()
+		# print "Phrase A: ", phraseA
+		phraseB = clean_speech.pop().split()
+		# print "Phrase B: ", phraseB
+		composite_phrase = []
+		count = 0
+		tmp_count = 0
+		found = False
+		if (len(phraseA) >= 1) and (len(phraseB) >= 1):
+			search_len = len(phraseB)
+			### we don't care about matches that are longer than the second phrase, so restrict the searchable area to the length of the second 
+			### phrase max
+			if (len(phraseA) >= search_len):
+				partial_phrase = phraseA[len(phraseA) - search_len: len(phraseA)]
+			else:
+				partial_phrase = phraseA
+			### search backwards from the end of the partial_phrase
+			for token in reversed(partial_phrase):
+				count += 1
+				if token == phraseB[0]:
+					found = True
+					### if the first word checked is a match, no need to apply the error checks below
+					if count == 1:
+						break
+					### when you find a match, ensure there is not actual intended repetition in the speech by
+					### checking to see if the word after the first of the second phrase matches the word after the 
+					### found match
+					if partial_phrase[len(partial_phrase) - count + 1] == phraseB[1]:
+						break
+			### The composite phrase will hold only the non-repeated segments of both phrases
+			if found: composite_phrase = phraseA[0:len(phraseA) - count] + phraseB
+			### When there is no match, simply append both complete phrases together
+			else: composite_phrase = phraseA + phraseB
+			# print "Composite Phrase: ", " ".join(composite_phrase)
+		clean_speech.append(" ".join(composite_phrase))
+	print "iter_count: ", iter_count
 
-print speech_recurse_3
-
-
-# for i in range(1,30):
-# 	tmp = speech.pop()
-	
-
-# test0 = speech.pop().split()
-# test1 = speech.pop().split()
-# test_composite = []
-
-# print test1
-# print test0
-
-# count = 0
-# for token in test1:
-# 	count += 1
-# 	if token == test0[0]:
-# 		print count
-# 		print "found a match!\n"
-# 		test_composite = test1[0:count - 1] + test0
-# 		print test_composite
-# 		break
-
+print clean_speech
 
 #print findCompletePhrase("Americans", "All Americans")
 #print findCompletePhrase("All Americans", "All Americans are")
