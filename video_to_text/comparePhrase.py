@@ -1,4 +1,5 @@
 import cPickle as pickle
+import operator
 
 
 def findCompletePhrase(phrase1, phrase2):
@@ -27,20 +28,6 @@ for p in rawSRT:
 	else: 
 		pass
 
-## complete phrases shift and repeat themselves, and so we want to 
-## elminiate duplicate overlapping portions of each phrase
-cleanSpeech = []
-# for p in speech:
-# 	cleanSpeech.append(p)
-# 	if len(cleanSpeech) >= 2:
-# 		phrase2 = cleanSpeech.pop().split()
-# 		phrase1 = cleanSpeech.pop().split()
-# 		print phrase1, phrase2
-# 	#Not working yet
-# 	for x in phrase2:
-# 		if x not in phrase1:
-# 			cleanSpeech.append(x)
-
 ### Make the composite phrase into the new "1st phrase" of the next comparison
 
 sub_speech = speech[0: len(speech)]
@@ -59,41 +46,69 @@ for phrase in sub_speech:
 		phraseB = clean_speech.pop().split()
 		# print "Phrase B: ", phraseB
 		composite_phrase = []
-		count = 0
-		tmp_count = 0
-		found = False
-		if (len(phraseA) >= 1) and (len(phraseB) >= 1):
-			search_len = len(phraseB)
-			### we don't care about matches that are longer than the second phrase, so restrict the searchable area to the length of the second 
-			### phrase max
-			if (len(phraseA) >= search_len):
-				partial_phrase = phraseA[len(phraseA) - search_len: len(phraseA)]
-			else:
-				partial_phrase = phraseA
-			### search backwards from the end of the partial_phrase
-			for token in reversed(partial_phrase):
-				count += 1
+
+		#iron clad error checking
+		matchIndex = []
+		searchSegment = []
+		if (len(phraseB) >= 1) and (len(phraseA) >= 1):
+			searchSegment = phraseA[-len(phraseB)::]
+			for i, token in enumerate(searchSegment):
 				if token == phraseB[0]:
-					found = True
-					### if the first word checked is a match, no need to apply the error checks below
-					if count == 1:
-						break
-					### when you find a match, ensure there is not actual intended repetition in the speech by
-					### checking to see if the word after the first of the second phrase matches the word after the 
-					### found match
-					if partial_phrase[len(partial_phrase) - count + 1] == phraseB[1]:
-						break
-			### The composite phrase will hold only the non-repeated segments of both phrases
-			if found: composite_phrase = phraseA[0:len(phraseA) - count] + phraseB
-			### When there is no match, simply append both complete phrases together
-			else: composite_phrase = phraseA + phraseB
-			# print "Composite Phrase: ", " ".join(composite_phrase)
-		clean_speech.append(" ".join(composite_phrase))
-	print "iter_count: ", iter_count
+					matchIndex.append(i)
+			# print "Phrase pair is", searchSegment, phraseB
+			if len(matchIndex) == 0:
+				composite_phrase = phraseA + phraseB
+			if len(matchIndex) == 1:
+				# print matchIndex[0]
+				# print len(phraseA) - len(phraseB) + matchIndex[0] + 1
+				# print "nonduplicate section is",searchSegment[0:matchIndex[0]]
+				composite_phrase = phraseA[0:-len(phraseB)] + searchSegment[0:matchIndex[0]] + phraseB
+			elif len(matchIndex) > 1:
+				IndexMatchCounter = dict.fromkeys(matchIndex, 0)
+				# print "IndexMatchCounter: ",IndexMatchCounter
+				for i in matchIndex:
+					postMatchSegment = searchSegment[i:]
+					for j, token in enumerate(searchSegment[i:]):
+						if token == phraseB[j]:
+							IndexMatchCounter[i] += 1               
+				# print IndexMatchCounter
+				trueIndex = max(IndexMatchCounter.iteritems(), key=operator.itemgetter(1))[0]
+				# print trueIndex
+				composite_phrase = phraseA[0:-len(phraseB)] + searchSegment[0:trueIndex] + phraseB
+			# print "Composite is", composite_phrase
+			clean_speech.append(" ".join(composite_phrase))
+	# 	count = 0
+	# 	tmp_count = 0
+	# 	found = False
+	# 	if (len(phraseA) >= 1) and (len(phraseB) >= 1):
+	# 		search_len = len(phraseB)
+	# 		### we don't care about matches that are longer than the second phrase, so restrict the searchable area to the length of the second 
+	# 		### phrase max
+	# 		if (len(phraseA) >= search_len):
+	# 			partial_phrase = phraseA[len(phraseA) - search_len: len(phraseA)]
+	# 		else:
+	# 			partial_phrase = phraseA
+	# 		### search backwards from the end of the partial_phrase
+	# 		for token in reversed(partial_phrase):
+	# 			count += 1
+	# 			if token == phraseB[0]:
+	# 				found = True
+	# 				### if the first word checked is a match, no need to apply the error checks below
+	# 				if count == 1:
+	# 					break
+	# 				### when you find a match, ensure there is not actual intended repetition in the speech by
+	# 				### checking to see if the word after the first of the second phrase matches the word after the 
+	# 				### found match
+	# 				if partial_phrase[len(partial_phrase) - count + 1] == phraseB[1]:
+	# 					break
+	# 		### The composite phrase will hold only the non-repeated segments of both phrases
+	# 		if found: composite_phrase = phraseA[0:len(phraseA) - count] + phraseB
+	# 		### When there is no match, simply append both complete phrases together
+	# 		else: composite_phrase = phraseA + phraseB
+	# 		# print "Composite Phrase: ", " ".join(composite_phrase)
+	# 	clean_speech.append(" ".join(composite_phrase))
+	# print "iter_count: ", iter_count
 
 print clean_speech
 
-#print findCompletePhrase("Americans", "All Americans")
-#print findCompletePhrase("All Americans", "All Americans are")
-#print findCompletePhrase("All Americans are", "really really beautiful")
 
