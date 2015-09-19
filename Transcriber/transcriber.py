@@ -1,11 +1,12 @@
 #########################################################################
 ############## IMPORT STATEMENTS ########################################
 #########################################################################
-
+from __future__ import unicode_literals
 from xml.dom.minidom import parse
 import sys
 import os
 import operator
+import youtube_dl
 
 #########################################################################
 ############## CLASS DECLARATION ########################################
@@ -20,7 +21,36 @@ class transcriber:
                 - the output is saved into a file "${name}.txt"
                 - intended to be called by the webCrawler module"""
 
-    # Member object 'speech' will hold the translated speech text
+    #Given a URL, uses YoutubeDL to download the subtitles of a speech in dfxp format. Call by passing a url and specify the path in which to store the file.             
+    def DownloadSpeech(url,filename):
+        class MyLogger(object):
+            def debug(self, msg):
+                print(msg)
+
+            def warning(self, msg):
+                print(msg)
+
+            def error(self, msg):
+                print(msg)
+
+
+        def my_hook(d):
+            if d['status'] == 'finished':
+                print('Done downloading, now converting ...')
+
+        outputName = 'data/' + filename
+        ydl_opts = {
+            'logger': MyLogger(),
+            'writesubtitles': True,
+            'skip_download': True,
+            'outtmpl': outputName
+        }
+
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
+
+
+        # Member object 'speech' will hold the translated speech text
     speech = []
 
 # end class transcriber
