@@ -2,10 +2,12 @@
 ############## IMPORT STATEMENTS ########################################
 #########################################################################
 
+from __future__ import unicode_literals
 from xml.dom.minidom import parse
 import sys
 import os
 import operator
+import youtube_dl
 
 #########################################################################
 ############## CLASS DECLARATION ########################################
@@ -27,8 +29,44 @@ class transcriber:
     def __init__(self):
         speech = []
 
-    # Member function 'transcribe' will take in a link and transcribe it to text
-    def transcribe(link):
+    # Member function 'transcribe' will take in 'url' video and transcribe it to text.
+    # filename is what you would like the output file in the data directory to be called.
+    def transcribe(self, url, filename):
+
+        #########################################################################
+        ############### DOWNLOAD SPEECH TO DFXP #################################
+        #########################################################################
+
+        # Given a URL, uses YoutubeDL to download the subtitles of a speech in dfxp format. 
+        # Call by passing a url and specify the path in which to store the file.  
+
+        def downloadSpeech(url,filename):
+            class MyLogger(object):
+                def debug(self, msg):
+                    print(msg)
+
+                def warning(self, msg):
+                    print(msg)
+
+                def error(self, msg):
+                    print(msg)
+
+
+            def my_hook(d):
+                if d['status'] == 'finished':
+                    print('Done downloading, now converting ...')
+
+            outputName = 'data/' + filename
+            ydl_opts = {
+                'logger': MyLogger(),
+                'writesubtitles': True,
+                'skip_download': True,
+                'outtmpl': outputName
+            }
+
+            with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+
         #########################################################################
         ############### TRANSLATE DFXP TO SRT ###################################
         #########################################################################
@@ -198,6 +236,15 @@ class transcriber:
             print clean_speech
 
         # end function cleanUpSpeech
+
+        #########################################################################
+        ############### CALL THE HELPER FUNCTIONS ###############################
+        #########################################################################
+
+        downloadSpeech(url, filename)
+        sentences = truncateSRT('data/' + filename + '.en.dfxp', filename)
+        cleanUpSpeech(sentences)
+
     # end method 'transcribe'
 
     # Member function 'getSpeech' will return the private speech variable
@@ -208,5 +255,7 @@ class transcriber:
 ############### MAIN ####################################################
 #########################################################################
 
-sentences = truncateSRT("hillary_clinton_1.en.dfxp", "hillary_clinton_1")
-cleanUpSpeech(sentences)
+CSPAN = transcriber()
+url =  "http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement"
+filename = "class_test_1"
+CSPAN.transcribe(url, filename)
