@@ -23,11 +23,16 @@ class transcriber:
                 - intended to be called by the webCrawler module"""
 
     # Member object 'speech' will hold the translated speech text
-    speech = []
+    SPEECH = []
+    URL = ""
+    NAME = ""
 
     # Constructor 
     def __init__(self):
-        speech = []
+        SPEECH = []
+        URL = ""
+        NAME = ""
+    # end constructor
 
     # Member function 'transcribe' will take in 'url' video and transcribe it to text.
     # filename is what you would like the output file in the data directory to be called.
@@ -233,8 +238,7 @@ class transcriber:
                             composite_phrase = phraseA[0:-len(phraseB)] + searchSegment[0:trueIndex] + phraseB
                         clean_speech.append(" ".join(composite_phrase))
 
-            print clean_speech
-
+            return clean_speech
         # end function cleanUpSpeech
 
         #########################################################################
@@ -243,12 +247,18 @@ class transcriber:
 
         downloadSpeech(url, filename)
         sentences = truncateSRT('data/' + filename + '.en.dfxp', filename)
-        cleanUpSpeech(sentences)
-
+        self.SPEECH = cleanUpSpeech(sentences)
+        self.URL = url
+        self.NAME = filename
     # end method 'transcribe'
 
     # Member function 'getSpeech' will return the private speech variable
-
+    def getSpeech(self):
+        return {'speech': self.SPEECH, 
+                'url': self.URL, 
+                'name': self.NAME
+                }
+    # end method 'getSpeech'
 # end class transcriber
 
 #########################################################################
@@ -259,3 +269,5 @@ CSPAN = transcriber()
 url =  "http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement"
 filename = "class_test_1"
 CSPAN.transcribe(url, filename)
+results = CSPAN.getSpeech()
+print results['url']
