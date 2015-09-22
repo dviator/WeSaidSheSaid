@@ -13,7 +13,7 @@ import youtube_dl
 ############## CLASS DECLARATION ########################################
 #########################################################################
 
-class transcriber:
+class Transcriber:
     """ Class Transcriber 
     -   Takes videos from CSPAN and translates the native dfxp into readable text
     -   Methods
@@ -265,9 +265,9 @@ class transcriber:
 ############### MAIN ####################################################
 #########################################################################
 
-CSPAN = transcriber()
-url =  "http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement"
-filename = "class_test_1"
-CSPAN.transcribe(url, filename)
-results = CSPAN.getSpeech()
-print results['url']
+    # CSPAN = transcriber()
+    # url =  "http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement"
+    # filename = "class_test_1"
+    # CSPAN.transcribe(url, filename)
+    # results = CSPAN.getSpeech()
+    # print results['url']
