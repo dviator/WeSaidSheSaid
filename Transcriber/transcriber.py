@@ -9,6 +9,8 @@ import os
 import operator
 import youtube_dl
 
+WSSS_ROOT = os.environ['WSSS_ROOT']
+
 #########################################################################
 ############## CLASS DECLARATION ########################################
 #########################################################################
@@ -61,7 +63,7 @@ class transcriber:
                 if d['status'] == 'finished':
                     print('Done downloading, now converting ...')
 
-            outputName = 'data/' + filename
+            outputName = WSSS_ROOT + '/Transcriber/data/' + filename
             ydl_opts = {
                 'logger': MyLogger(),
                 'writesubtitles': True,
@@ -137,7 +139,7 @@ class transcriber:
                 except ValueError:
                     return False
 
-            temp_dest = 'data/' + name + '_tmp.srt'
+            temp_dest = WSSS_ROOT + '/Transcriber/data/' + name + '_tmp.srt'
             translate(source, temp_dest)
 
             srt_file = open(temp_dest, 'r')
@@ -246,7 +248,7 @@ class transcriber:
         #########################################################################
 
         downloadSpeech(url, filename)
-        sentences = truncateSRT('data/' + filename + '.en.dfxp', filename)
+        sentences = truncateSRT(WSSS_ROOT + '/Transcriber/data/' + filename + '.en.dfxp', filename)
         self.SPEECH = cleanUpSpeech(sentences)
         self.URL = url
         self.NAME = filename
@@ -271,3 +273,4 @@ filename = "class_test_1"
 CSPAN.transcribe(url, filename)
 results = CSPAN.getSpeech()
 print results['url']
+print 'WSSS_ROOT: ' + WSSS_ROOT
