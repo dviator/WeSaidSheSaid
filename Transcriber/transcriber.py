@@ -137,7 +137,7 @@ class Transcriber:
                 except ValueError:
                     return False
 
-            temp_dest = name + '_tmp.srt'
+            temp_dest = 'data/' + name + '_tmp.srt'
             translate(source, temp_dest)
 
             srt_file = open(temp_dest, 'r')
