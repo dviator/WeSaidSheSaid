@@ -267,19 +267,12 @@ class Transcriber:
 ############### MAIN ####################################################
 #########################################################################
 
-<<<<<<< HEAD
-    # CSPAN = transcriber()
-    # url =  "http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement"
-    # filename = "class_test_1"
-    # CSPAN.transcribe(url, filename)
-    # results = CSPAN.getSpeech()
-    # print results['url']
-=======
-CSPAN = transcriber()
-url =  "http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement"
-filename = "class_test_1"
-CSPAN.transcribe(url, filename)
-results = CSPAN.getSpeech()
-print results['url']
-print 'WSSS_ROOT: ' + WSSS_ROOT
->>>>>>> 4b64e92cc0a905e8ff7b84f71c542fd6ba7b70a0
+
+# CSPAN = transcriber()
+# url =  "http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement"
+# filename = "class_test_1"
+# CSPAN.transcribe(url, filename)
+# results = CSPAN.getSpeech()
+# print results['url']
+# print 'WSSS_ROOT: ' + WSSS_ROOT
+
