@@ -19,8 +19,10 @@ class Test_Transcriber(unittest.TestCase):
 
 	def test_dfxp_to_srt(self):
 		self.assertTrue(os.path.isfile("Transcriber/data/TestSpeech_tmp.srt"))
+
 	def test_srt_to_final(self):
-		pass
+		TestInstance = Transcriber()
+		self.assertIsNotNone(TestInstance.transcribe("http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement","TestSpeech"))
 
 	#Needs a teardown method that deletes the files that are created between runs. 
 if __name__ == '__main__':
