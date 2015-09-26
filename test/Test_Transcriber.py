@@ -25,7 +25,25 @@ class Test_Transcriber(unittest.TestCase):
 		TestInstance = Transcriber()
 		TestInstance.transcribe("http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement","TestSpeech")
 		self.assertIsNotNone(TestInstance.getSpeech())
+		
+		#Open example file and compare to output.
+		t = open("test/data/HillarySpeechExampleOutput",'r')
+		speechText = t.read()
+		self.assertEquals(str(TestInstance.SPEECH[0]),speechText)
 
+		#TODO: Remove / from the apostrophes in the speech text. Currently each ' is preceded by a /
+		#Script for creating model data file.
+		# f = open("test/data/HillarySpeechExampleOutput",'w')
+		# f.write(str(TestInstance.SPEECH[0]))
+	def test_trump(self):
+		TrumpInstance = Transcriber()
+		TrumpInstance.transcribe("http://www.c-span.org/video/?328138-1/donald-trump-town-hall-meeting-rochester-new-hampshire","TrumpTest")
+		self.assertIsNotNone(TrumpInstance.getSpeech())
+		x = open("test/data/TrumpFinal.txt","r")
+		trumpText = x.read()
+		self.assertEquals(str(TrumpInstance.SPEECH[0]),trumpText)
+		
+		#x.write(str(TrumpInstance.SPEECH[0]))
 	#Needs a teardown method that deletes the files that are created between runs. 
 if __name__ == '__main__':
     unittest.main()
