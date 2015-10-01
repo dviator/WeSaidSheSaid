@@ -4,7 +4,7 @@ conn = psycopg2.connect("dbname=wsss user=wsss")
 
 cur = conn.cursor()
 
-cur.execute("""CREATE TABLE Speeches (
+cur.execute("""CREATE TABLE IF NOT EXISTS Speeches (
 	url	varchar(100) primary key,
 	title varchar(100),
 	speaker varchar(50),
@@ -12,6 +12,15 @@ cur.execute("""CREATE TABLE Speeches (
 	speechTime timestamp,
 	city varchar(30),
 	state varchar(30));""")
+
+cur.execute("""CREATE TABLE IF NOT EXISTS Candidates (
+	fullName varchar(50) primary key,
+	first varchar(50),
+	last varchar(50),
+	middle varchar(50),
+	party varchar(25));"""
+	)
+
 
 conn.commit()
 
