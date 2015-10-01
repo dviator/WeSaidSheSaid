@@ -41,7 +41,11 @@ class CspanSpider(scrapy.Spider):
 		if pageType[0] == 'video event':
 			print "It's a video!"
 
-		#Gather video metadata
+			#Gather video metadata
+
+			# gather the name of the speaker(s) in this video by searching for the "filter-transcript" id
+			speaker = response.xpath("//*[contains(concat(' ', @id, ' '), ' filter-transcript ')]/option[@value and string-length(@value)!=0]/text()").extract()
+			print "speaker is: ", speaker
 
 		#Call Transcriber class
 
