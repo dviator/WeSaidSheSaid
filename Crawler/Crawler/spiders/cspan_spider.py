@@ -1,4 +1,6 @@
 import scrapy
+from scrapy.loader import ItemLoader
+from Crawler.items import CSPANItem
 
 class CspanSpider(scrapy.Spider):
 	name = "cspan"
@@ -41,11 +43,27 @@ class CspanSpider(scrapy.Spider):
 		if pageType[0] == 'video event':
 			print "It's a video!"
 
-			#Gather video metadata
+			#Gather video metadata into a CSPAN Item
+			l = ItemLoader(item=CSPANItem(), response=response)
 
 			# gather the name of the speaker(s) in this video by searching for the "filter-transcript" id
-			speaker = response.xpath("//*[contains(concat(' ', @id, ' '), ' filter-transcript ')]/option[@value and string-length(@value)!=0]/text()").extract()
-			print "speaker is: ", speaker
+			# do not forget to post-process this field by comparing the candidate to the acceptable list from the database !!! 
+			l.add_xpath('candidate', "//*[contains(concat(' ', @id, ' '), ' filter-transcript ')]/option[@value and string-length(@value)!=0]/text()")
+
+			# gather the title of the video 
+			l.add_xpath('title', "//html/head/meta[@property = 'og:title']/@content")
+
+			# add url to the item loader
+			l.add_value('url', response.url)
+
+			# gather the date of the video
+			l.add_xpath('date', "//div[@class = 'overview']/span[@class = 'time']/time/text()")
+
+			result = l.load_item()
+			print "speaker is: ", result['candidate']
+			print "title is: ", result['title']
+			print "url is: ", result['url']
+			print "date is: ", result['date']
 
 		#Call Transcriber class
 
