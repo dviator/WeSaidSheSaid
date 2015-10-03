@@ -1,18 +1,24 @@
 import scrapy
+import psycopg2
+
+#Collect a list of valid candidates from the candidates table in the wsss database. 
+conn = psycopg2.connect("dbname=wsss user=wsss")
+cur = conn.cursor() 
+cur.execute('SELECT fullName from Candidates;')
+validCandidates = []
+for record in cur:
+	validCandidates.append(record[0])
+#print validCandidates
+print validCandidates[0]
+conn.commit()
+cur.close()
+conn.close()
 
 class CspanSpider(scrapy.Spider):
 	name = "cspan"
 	allowed_domains = ["c-span.org"]
 	start_urls = ["http://www.c-span.org/search/?searchtype=Videos&sort=Most+Recent+Airing&all[]=presidential&all[]=campaign&all[]=speech"]
-	
-	# name = "dmoz"
-	# allowed_domains = ["dmoz.org"]
 
-	# start_urls = [
-	# "http://www.dmoz.org/Computers/Programming/Languages/Python/Books/",
-	# "http://www.dmoz.org/Computers/Programming/Languages/Python/Resources/"
-	# ]
-	
 	def parse(self, response):
 		filename = response.url.split("/")[-2] + '.html'
 		print filename
@@ -28,6 +34,23 @@ class CspanSpider(scrapy.Spider):
 		for url in speechLinks:
 			url = response.urljoin(url)
 			yield scrapy.Request(url, callback=self.parse_speech_page)
+
+	def write_to_db(self, item):
+		#Write the item's contents into the database
+		conn = psycopg2.connect("dbname=wsss user=wsss")
+
+		cur = conn.cursor()
+		cur.execute('INSERT INTO Speeches (url, title, speaker, collectionTime, speechTime, city, state) VALUES (%s, %s, %s, %s, %s, %s, %s)', (item.url, item.title, item.speaker, item.collectionTime, item.speechTime, item.city, item.state))
+
+		#Commit queued database transactions and close connection
+		conn.commit()
+		cur.close()
+		conn.close()
+		pass
+
+	#Method to validate that the video features a speaker from our candidates list
+	def validate_speaker(self, speakers):
+		pass
 
 
 	#This function handles those pages which are sent as candidates for presidential campaign speeches.
@@ -46,6 +69,25 @@ class CspanSpider(scrapy.Spider):
 			# gather the name of the speaker(s) in this video by searching for the "filter-transcript" id
 			speaker = response.xpath("//*[contains(concat(' ', @id, ' '), ' filter-transcript ')]/option[@value and string-length(@value)!=0]/text()").extract()
 			print "speaker is: ", speaker
+			
+		item = "blah"
+		
+		#Write gathered data to the database
+		#self.write_to_db(item)
+
+
+	
+		
+
+
+
+	
+
+
+
+
+
+
 
 		#Call Transcriber class
 

@@ -3,10 +3,9 @@ import psycopg2
 conn = psycopg2.connect("dbname=wsss user=wsss")
 
 cur = conn.cursor()
-
+# ('Martin J. O'Malley', 'Martin', "O'Malley", 'J.','Democrat'),
 cur.execute("""INSERT INTO Candidates (fullName, first, last, middle, party) VALUES
 	('Marco Rubio', 'Marco', 'Rubio','','Republican'),
-	('Martin J. O\\'Malley', 'Martin', "O'Malley", 'J.','Democrat'),
 	('Carly Fiorina', 'Fiorina', 'Carly','','Republican'),
 	('Ted Cruz', 'Cruz', 'Ted','','Republican'),
 	('Scott Walker', 'Walker', 'Scott','','Republican'),
