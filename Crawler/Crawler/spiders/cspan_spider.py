@@ -31,6 +31,7 @@ class CspanSpider(scrapy.Spider):
 		# print speechLinks
 		# with open("links.txt", 'wb') as f:
 		# 	f.write(str(speechLinks))
+		print speechLinks
 
 		#Generate a new crawl request for each link followed that treats them as speech videos. 
 		for url in speechLinks:
@@ -51,6 +52,7 @@ class CspanSpider(scrapy.Spider):
 		pass
 
 	#Method to validate that the video features a speaker from our candidates list
+	#Takes in a list of speakers from a video, returns the first speaker name that matches. If a match does not exist returns None
 	def validate_speaker(self, speakers):
 		for speaker in speakers:
 			if speaker in validCandidates:
