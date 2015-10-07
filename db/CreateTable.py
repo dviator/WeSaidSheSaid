@@ -8,6 +8,7 @@ cur.execute("""CREATE TABLE IF NOT EXISTS Speeches (
 	url	varchar(100) primary key,
 	title varchar(100),
 	speaker varchar(50),
+	transcription text,
 	collectionTime varchar(50),
 	speechTime varchar(50),
 	city varchar(30),

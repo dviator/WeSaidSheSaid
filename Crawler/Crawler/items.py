@@ -15,6 +15,7 @@ class CSPANItem(scrapy.Item):
     # name = scrapy.Field()
     title = scrapy.Field(input_processor=MapCompose(remove_tags))
     speaker = scrapy.Field(input_processor=MapCompose(remove_tags))
+    transcription = scrapy.Field(input_processor=MapCompose(remove_tags))
     url = scrapy.Field(input_processor=MapCompose(remove_tags))
     speechTime = scrapy.Field(input_processor=MapCompose(remove_tags))
     collectionTime = scrapy.Field(input_processor=MapCompose(remove_tags))

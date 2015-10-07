@@ -2,6 +2,8 @@ import scrapy
 from scrapy.loader import ItemLoader
 from Crawler.items import CSPANItem
 import psycopg2
+from .transcriber import Transcriber
+
 
 #Collect a list of valid candidates from the candidates table in the wsss database. 
 conn = psycopg2.connect("dbname=wsss user=wsss")
@@ -42,7 +44,7 @@ class CspanSpider(scrapy.Spider):
 		conn = psycopg2.connect("dbname=wsss user=wsss")
 
 		cur = conn.cursor()
-		cur.execute('INSERT INTO Speeches (url, title, speaker, collectionTime, speechTime, city, state) VALUES (%s, %s, %s, %s, %s, %s, %s)', (item['url'][0], item['title'][0], item['speaker'][0], item['collectionTime'][0], item['speechTime'][0], item['city'][0], item['state'][0]))
+		cur.execute('INSERT INTO Speeches (url, title, speaker, transcription, collectionTime, speechTime, city, state) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (item['url'][0], item['title'][0], item['speaker'][0], item['transcription'][0], item['collectionTime'][0], item['speechTime'][0], item['city'][0], item['state'][0]))
 
 		#Commit queued database transactions and close connection
 		conn.commit()
@@ -87,9 +89,16 @@ class CspanSpider(scrapy.Spider):
 			l.add_value('city', 'null')
 			l.add_value('state', 'null')
 
+			# call the transcriber class 
+			t = Transcriber()
+			t.transcribe(response.url, "crawler_test_1")
+			speech= t.getSpeech()
+			speech_text = speech['speech']
+			l.add_value('transcription', speech_text)
+
 			item = l.load_item()
 
-			print "the item looks like: ", item
+			# print "the item looks like: ", item
 					
 			#Write gathered data to the database
 			self.write_to_db(item)
