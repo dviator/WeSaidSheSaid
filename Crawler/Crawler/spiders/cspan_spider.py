@@ -45,7 +45,7 @@ class CspanSpider(scrapy.Spider):
 		conn = psycopg2.connect("dbname=wsss user=wsss")
 
 		cur = conn.cursor()
-		cur.execute('INSERT INTO Speeches (url, title, speaker, transcription, collectionTime, speechTime, city, state) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (item['url'][0], item['title'][0], item['speaker'][0], item['transcription'][0], item['collectionTime'][0], item['speechTime'][0], item['city'][0], item['state'][0]))
+		cur.execute('INSERT INTO Speeches (url, title, speaker, transcription, collectionTime, speechTime, city, state) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (item['url'][0], item['title'][0], item['speaker'], item['transcription'][0], item['collectionTime'][0], item['speechTime'][0], item['city'][0], item['state'][0]))
 
 		#Commit queued database transactions and close connection
 		conn.commit()
@@ -108,9 +108,10 @@ class CspanSpider(scrapy.Spider):
 
 			#Validate that the item contains a speaker we're interested in.
 			item['speaker'] = self.validate_speaker(item['speaker'])
+			print "speaker is: ", item['speaker']
 			
 			#Write gathered data to the database
-			if(item['spekaer'] != None)
+			if item['speaker'] is not None :
 				self.write_to_db(item)
 
 

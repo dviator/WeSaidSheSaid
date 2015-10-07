@@ -1,0 +1,219 @@
+Marco Rubio
+search.html
+[u'http://www.c-span.org/video/?328587-1/senator-marco-rubio-rfl-remarks-innovation-economy', u'http://www.c-span.org/video/?328577-1/hillary-clinton-remarks-gun-violence', u'http://www.c-span.org/video/?328503-1/hillary-clinton-grassroots-campaign-event-davie-florida', u'http://www.c-span.org/video/?328503-101/clinton-presidential-campaign-event-davie-florida', u'http://www.c-span.org/video/?328446-1/donald-trump-campaign-rally-keene-new-hampshire', u'http://www.c-span.org/video/?328419-1/former-governor-jeb-bush-rfl-energy-policy-address', u'http://www.c-span.org/video/?328312-1/carly-fiorina-remarks-greenville-south-carolina', u'http://www.c-span.org/video/?328221-1/dr-ben-carson-campaign-rally-ohio', u'http://www.c-span.org/video/?328220-1/senator-bernie-sanders-ivt-town-hall-meeting-new-hampshire', u'http://www.c-span.org/video/?328138-1/donald-trump-town-hall-meeting-rochester-new-hampshire', u'http://www.c-span.org/video/?328155-1/donald-trump-campaign-rally-national-security', u'http://www.c-span.org/video/?328087-1/carly-fiorina-remarks-chichester-new-hampshire', u'http://www.c-span.org/video/?327989-2/washington-journal-news-headlines-viewer-calls', u'http://www.c-span.org/video/?328035-1/governor-scott-walker-rwi-remarks-eureka-college', u'http://www.c-span.org/video/?328019-1/dr-ben-carson-rally-anaheim', u'http://www.c-span.org/video/?327900-1/governor-john-kasich-roh-meetandgreet-bedford-new-hampshire', u'http://www.c-span.org/video/?327834-1/governor-scott-walker-rwi-remarks-foreign-policy', u'http://www.c-span.org/video/?327791-5/martin-omalley-democratic-national-committee-summer-meeting', u'http://www.c-span.org/video/?327833-1/senator-marco-rubio-rfl-us-policy-toward-china', u'http://www.c-span.org/video/?327822-1/hillary-clinton-remarks-rural-policy', u'#']
+{'Via': ['1.1 054ad7da4894d4ad35e47e71824e67f4.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['8QGKdTsDEXkGsdQjS8Lt-4FoIapRD3P8nx6Gc6iHPVhKtszYYRtxhw=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:38 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328221-1/dr-ben-carson-campaign-rally-ohio
+[u'video event']
+It's a video!
+[CSpan] 328221: Downloading webpage
+[CSpan] 415439: Downloading JSON metadata
+[CSpan] 415439: Downloading XML
+[download] Downloading playlist: Presidential Candidate Ben Carson Campaign Rally
+[CSpan] playlist Presidential Candidate Ben Carson Campaign Rally: Collected 2 video ids (downloading 2 of them)
+[download] Downloading video 1 of 2
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+[download] Downloading video 2 of 2
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Ben Carson Sr., M.D. doesn't match!
+speaker is:  None
+{'Via': ['1.1 4e8006e07e68939d5b5da61e5b4699ff.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['khPvkAbc8_KjhU0Z2Q7pDIYdl8nrgM2yGBiUC3P-YSRXsLD9g2Wy6Q=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:38 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328035-1/governor-scott-walker-rwi-remarks-eureka-college
+[u'video event']
+It's a video!
+[CSpan] 328035: Downloading webpage
+[CSpan] 413455: Downloading JSON metadata
+[CSpan] 413455: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Chuck Erickson doesn't match!
+Scott Walker matches!
+speaker is:  Scott Walker
+{'Via': ['1.1 054ad7da4894d4ad35e47e71824e67f4.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['_l-HEU7prVPa2Y-8gTnPWfzdcmNmlBQkfcSvQif2tLO1Q9LvT2wkPw=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:38 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328087-1/carly-fiorina-remarks-chichester-new-hampshire
+[u'video event']
+It's a video!
+[CSpan] 328087: Downloading webpage
+[CSpan] 413692: Downloading JSON metadata
+[CSpan] 413692: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Carly Fiorina matches!
+speaker is:  Carly Fiorina
+{'Via': ['1.1 4e8006e07e68939d5b5da61e5b4699ff.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['FZICN8Vorj4atoLW3q_OPxDhUghjqcIN6l1eKWejX8sDLefaofZt3Q=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:38 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328155-1/donald-trump-campaign-rally-national-security
+[u'video event']
+It's a video!
+[CSpan] 328155: Downloading webpage
+[CSpan] 414081: Downloading JSON metadata
+[CSpan] 414081: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Tim Abell doesn't match!
+Joel Arends doesn't match!
+Wink Martindale doesn't match!
+Janine Stange doesn't match!
+Donald Trump matches!
+speaker is:  Donald Trump
+{'Via': ['1.1 054ad7da4894d4ad35e47e71824e67f4.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['G3BGqh4329xhVoxvkLemFQwREgg3USmIaSxmpQpOGKGno8SX7pAW8A=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:38 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328312-1/carly-fiorina-remarks-greenville-south-carolina
+[u'video event']
+It's a video!
+[CSpan] 328312: Downloading webpage
+[CSpan] 415942: Downloading JSON metadata
+[CSpan] 415942: Downloading XML
+Carly Fiorina matches!
+speaker is:  Carly Fiorina
+{'Via': ['1.1 e5b6a8161bf68154b75e352615368bb3.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['glJLG6X-C-gMvuxsHZKrPWyqjfIryzEd6NhvmmLpoREu1Lmsxw8s4A=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:38 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328220-1/senator-bernie-sanders-ivt-town-hall-meeting-new-hampshire
+[u'video event']
+It's a video!
+[CSpan] 328220: Downloading webpage
+[CSpan] 415419: Downloading JSON metadata
+[CSpan] 415419: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Bernie Sanders matches!
+speaker is:  Bernie Sanders
+{'Via': ['1.1 12d553da488f4b888f83cd96bab2823b.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['CMPQORJaiwjULMJ0_7w3WtEQyFH_BZhf92sJsOYP1M2jO8nJIo_L3Q=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:38 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?327989-2/washington-journal-news-headlines-viewer-calls
+[u'video event']
+It's a video!
+[CSpan] 327989: Downloading webpage
+[CSpan] 413636: Downloading JSON metadata
+[CSpan] 413636: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Nicole Gaudiano doesn't match!
+Paul Orgel doesn't match!
+speaker is:  None
+{'Via': ['1.1 12d553da488f4b888f83cd96bab2823b.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['g-s_G6bau7t9fYAp8DabxaAFwaNvEo1OX0P9qOf-DFKoS1h5LH-O2w=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:38 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328138-1/donald-trump-town-hall-meeting-rochester-new-hampshire
+[u'video event']
+It's a video!
+[CSpan] 328138: Downloading webpage
+[CSpan] 413991: Downloading JSON metadata
+[CSpan] 413991: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Donald Trump matches!
+speaker is:  Donald Trump
+{'Via': ['1.1 054ad7da4894d4ad35e47e71824e67f4.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['-7lNziM0AnCa0x5wfnEH3cwYGfZLYHn8KAkQfNdMY6DWvHsy_ul2oA=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:39 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328419-1/former-governor-jeb-bush-rfl-energy-policy-address
+[u'video event']
+It's a video!
+[CSpan] 328419: Downloading webpage
+[CSpan] 416491: Downloading JSON metadata
+[CSpan] 416491: Downloading XML
+Jeb Bush matches!
+speaker is:  Jeb Bush
+{'Via': ['1.1 12d553da488f4b888f83cd96bab2823b.cloudfront.net (CloudFront)'], 'X-Cache': ['Hit from cloudfront'], 'Age': ['8'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['8R-D59qf2JK_HNJ_oBy_Fibj_InuhT8Brk7J9AazE7g2ev8LpqbDcQ=='], 'Cache-Control': ['s-maxage=900'], 'Date': ['Wed, 07 Oct 2015 03:11:36 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/search/?searchtype=Videos&sort=Most+Recent+Airing&all%5B%5D=presidential&all%5B%5D=campaign&all%5B%5D=speech
+[u'search-results']
+{'Via': ['1.1 054ad7da4894d4ad35e47e71824e67f4.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['lTfzOOK4qTBY-Oksdcgwvd5cNjirfhX8vmGvNvX9FkSPfV-u2RNhtg=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:44 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328503-101/clinton-presidential-campaign-event-davie-florida
+[u'video event']
+It's a video!
+[CSpan] 328503: Downloading webpage
+[CSpan] 417140: Downloading JSON metadata
+[CSpan] 417140: Downloading XML
+{'Via': ['1.1 e5b6a8161bf68154b75e352615368bb3.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['Ac2wh8qGDiNV8r0IQf9hlRJj7rfyVpFxYoQwtNfeQqHKN-EiPDoBNg=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:44 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328587-1/senator-marco-rubio-rfl-remarks-innovation-economy
+[u'video event']
+It's a video!
+[CSpan] 328587: Downloading webpage
+[CSpan] 417222: Downloading JSON metadata
+[CSpan] 417222: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Marco Rubio matches!
+speaker is:  Marco Rubio
+{'Via': ['1.1 054ad7da4894d4ad35e47e71824e67f4.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['r4quYZMwx8_Mdpn2Nw8I5FqHHvAWw4FPT6ebowmO9N7jm3uIUn0ZBg=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:43 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328577-1/hillary-clinton-remarks-gun-violence
+[u'video event']
+It's a video!
+[CSpan] 328577: Downloading webpage
+[CSpan] 417200: Downloading JSON metadata
+[CSpan] 417200: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Hillary Rodham Clinton matches!
+speaker is:  Hillary Rodham Clinton
+{'Via': ['1.1 4e8006e07e68939d5b5da61e5b4699ff.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['SPpJKlQSMSrJgQ5q2YDeh_6_L0TmZt-VTZeD2znZLKTPYs8AoKsCXQ=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:44 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328503-1/hillary-clinton-grassroots-campaign-event-davie-florida
+[u'video event']
+It's a video!
+[CSpan] 328503: Downloading webpage
+[CSpan] 416864: Downloading JSON metadata
+[CSpan] 416864: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Hillary Rodham Clinton matches!
+speaker is:  Hillary Rodham Clinton
+{'Via': ['1.1 12d553da488f4b888f83cd96bab2823b.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['UrbVRwHe6bVTzhmcMA3bEJptdw87lEgIoo7n4ntINqgdT3f-KYMo8Q=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:43 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?327822-1/hillary-clinton-remarks-rural-policy
+[u'video event']
+It's a video!
+[CSpan] 327822: Downloading webpage
+[CSpan] 412033: Downloading JSON metadata
+[CSpan] 412033: Downloading XML
+[download] Downloading playlist: Presidential Candidate Hillary Clinton on Rural Policy
+[CSpan] playlist Presidential Candidate Hillary Clinton on Rural Policy: Collected 2 video ids (downloading 2 of them)
+[download] Downloading video 1 of 2
+[download] Downloading video 2 of 2
+Hillary Rodham Clinton matches!
+speaker is:  Hillary Rodham Clinton
+{'Via': ['1.1 054ad7da4894d4ad35e47e71824e67f4.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['ZZ-RjnsD--nedc5mdA8MfL0d6_AfwoEt6l_OD4RH-lmehdalH7KnCg=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:44 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?327833-1/senator-marco-rubio-rfl-us-policy-toward-china
+[u'video event']
+It's a video!
+[CSpan] 327833: Downloading webpage
+[CSpan] 412142: Downloading JSON metadata
+[CSpan] 412142: Downloading XML
+Marco Rubio matches!
+speaker is:  Marco Rubio
+{'Via': ['1.1 4e8006e07e68939d5b5da61e5b4699ff.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['83CvP-i-eQ16fsOybt4rygbgLy5bEFRDXpllNOnp4BHuu3iVQtT5zw=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:11:44 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328446-1/donald-trump-campaign-rally-keene-new-hampshire
+[u'video event']
+It's a video!
+[CSpan] 328446: Downloading webpage
+[CSpan] 416589: Downloading JSON metadata
+[CSpan] 416589: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Donald Trump matches!
+speaker is:  Donald Trump
+{'Via': ['1.1 12d553da488f4b888f83cd96bab2823b.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['gQpsYhiecGBLxBRPTwcjlPBfcbi0rhe3YB_PVlTd24dqgZvNIK9X3w=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:12:05 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?327791-5/martin-omalley-democratic-national-committee-summer-meeting
+[u'video event']
+It's a video!
+[CSpan] 327791: Downloading webpage
+[CSpan] 412223: Downloading JSON metadata
+[CSpan] 412223: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Maria Elena Durazo doesn't match!
+Martin J. O'Malley doesn't match!
+speaker is:  None
+{'Via': ['1.1 054ad7da4894d4ad35e47e71824e67f4.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['zR3fI9aoebDxH5aFrP4S3Ox7TZwVXII3OPJm-TDqWsie5_4OVR0Eyg=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:12:04 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?327834-1/governor-scott-walker-rwi-remarks-foreign-policy
+[u'video event']
+It's a video!
+[CSpan] 327834: Downloading webpage
+[CSpan] 412139: Downloading JSON metadata
+[CSpan] 412139: Downloading XML
+[info] Writing video subtitles to: /home/alex/Desktop/politicalBS/WeSaidSheSaid/Transcriber/data/crawler_test_1.en.dfxp
+Scott Walker matches!
+speaker is:  Scott Walker
+{'Via': ['1.1 e5b6a8161bf68154b75e352615368bb3.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['D8724A3JAiGgIr4wjpxkhmwEB58QZ_GZGLBgrV5pFu7EzOS9ajShxA=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:12:05 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?327900-1/governor-john-kasich-roh-meetandgreet-bedford-new-hampshire
+[u'video event']
+It's a video!
+[CSpan] 327900: Downloading webpage
+[CSpan] 412537: Downloading JSON metadata
+[CSpan] 412537: Downloading XML
+Richard E. Ashooh doesn't match!
+John R. Kasich matches!
+speaker is:  John R. Kasich
+{'Via': ['1.1 054ad7da4894d4ad35e47e71824e67f4.cloudfront.net (CloudFront)'], 'X-Cache': ['Miss from cloudfront'], 'Server': ['Apache/2.4.16 (Amazon) OpenSSL/1.0.1k-fips'], 'X-Amz-Cf-Id': ['vQkk2wiE6n3sJHjGxvHqMsnGbR5Jyy0Bv4IwWxh4y445ru2iw4eedw=='], 'Cache-Control': ['s-maxage=300'], 'Date': ['Wed, 07 Oct 2015 03:12:04 GMT'], 'Content-Type': ['text/html; charset=UTF-8']}
+http://www.c-span.org/video/?328019-1/dr-ben-carson-rally-anaheim
+[u'video event']
+It's a video!
+[CSpan] 328019: Downloading webpage
+[CSpan] 413360: Downloading JSON metadata
+[CSpan] 413360: Downloading XML
+[download] Downloading playlist: Presidential Candidate Ben Carson Rally
+[CSpan] playlist Presidential Candidate Ben Carson Rally: Collected 3 video ids (downloading 3 of them)
+[download] Downloading video 1 of 3
+[download] Downloading video 2 of 3
+[download] Downloading video 3 of 3
+Ben Carson Sr., M.D. doesn't match!
+speaker is:  None
