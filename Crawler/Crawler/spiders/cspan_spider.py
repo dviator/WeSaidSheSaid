@@ -52,7 +52,13 @@ class CspanSpider(scrapy.Spider):
 
 	#Method to validate that the video features a speaker from our candidates list
 	def validate_speaker(self, speakers):
-		pass
+		for speaker in speakers:
+			if speaker in validCandidates:
+				print speaker, "matches!"
+				return speaker
+			else:
+				print speaker, "doesn't match!"
+		return None
 
 
 	#This function handles those pages which are sent as candidates for presidential campaign speeches.
@@ -90,9 +96,12 @@ class CspanSpider(scrapy.Spider):
 			item = l.load_item()
 
 			print "the item looks like: ", item
-					
-			#Write gathered data to the database
+				
+			#Validate that the item contains a speaker we're interested in.
+			self.validate_speaker(item['speaker'])
+				#Write gathered data to the database
 			self.write_to_db(item)
+
 
 		#Call Transcriber class
 
