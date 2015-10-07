@@ -3,7 +3,9 @@ import psycopg2
 conn = psycopg2.connect("dbname=wsss user=wsss")
 
 cur = conn.cursor()
+#Have to figure out how to escape O'Malley
 # ('Martin J. O'Malley', 'Martin', "O'Malley", 'J.','Democrat'),
+
 cur.execute("""INSERT INTO Candidates (fullName, first, last, middle, party) VALUES
 	('Marco Rubio', 'Marco', 'Rubio','','Republican'),
 	('Carly Fiorina', 'Fiorina', 'Carly','','Republican'),
@@ -26,7 +28,8 @@ cur.execute("""INSERT INTO Candidates (fullName, first, last, middle, party) VAL
 	('Joe Biden', 'Biden', 'Joe','','Democrat'),
 	('Lincoln Chafee', 'Chafee', 'Lincoln','','Democrat'),
 	('Bill de Blasio', 'de Blasio', 'Bill','','Democrat'),
-	('Jim Webb', 'Webb', 'Jim','','Democrat');"""
+	('Jim Webb', 'Webb', 'Jim','','Democrat'),
+	('Donald Trump', 'Trump', 'Donald','','Weasel');"""
 )
 
 
