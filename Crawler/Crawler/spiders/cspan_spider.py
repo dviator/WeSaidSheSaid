@@ -3,6 +3,7 @@ from scrapy.loader import ItemLoader
 from Crawler.items import CSPANItem
 import psycopg2
 from .transcriber import Transcriber
+from selenium import webdriver
 
 
 #Collect a list of valid candidates from the candidates table in the wsss database. 
@@ -23,13 +24,57 @@ class CspanSpider(scrapy.Spider):
 	allowed_domains = ["c-span.org"]
 	start_urls = ["http://www.c-span.org/search/?searchtype=Videos&sort=Most+Recent+Airing&all[]=presidential&all[]=campaign&all[]=speech"]
 
+	def __init__(self):
+		self.driver = webdriver.Firefox()
+
+
 	def parse(self, response):
-		filename = response.url.split("/")[-2] + '.html'
-		print filename
-		with open(filename, 'wb') as f:
-			f.write(response.body)
+		#With selenium, click the show more videos button until it is no longer possible to do so. 
+		#Then pass that page as the input for the rest of scrapy's activities
+		self.driver.get(response.url)
+
+		next = self.driver.find_element_by_id('search-results-limit-100')
+		next.click()
+
+		while True:
+			try:
+				next = self.driver.find_element_by_id('loadmore')
+				next.click()
+				print "Clicking!"
+				
+				#This break is a shortcut for Development. Comment out to get more videos
+				break
+			except:
+				break
+
+		print "Scrapy URL is: ", response.url
+
+		
+		url = self.driver.current_url
+
+		print "Selenium URL is: ", url
+
+		# with open("seleniumResponse.txt", 'wb') as f:
+		# 	f.write(Seleniumresponse.encode('utf-8'))
+
+		
+
+		# filename = response.url.split("/")[-2] + '.html'
+		# print filename
+		# with open(filename, 'wb') as f:
+		# 	f.write(response.body)
+		speechLinks = []
+		#Extract from the selenium page source instead
+		speechLinkElements = self.driver.find_elements_by_xpath('//section/ul/li/a')
+		print "Elements list is ", speechLinkElements
+		for s in speechLinkElements:
+			#print "Attribute is: ", s.get_attribute('href')
+			speechLinks.append(s.get_attribute('href'))
+
+		print "Number of Links is: ", len(speechLinks)
+
 		#Extract the links to the search results on the page.
-		speechLinks = response.xpath('//section/ul/li/a/@href').extract()
+		#speechLinks = response.xpath('//section/ul/li/a/@href').extract()
 		# print speechLinks
 		# with open("links.txt", 'wb') as f:
 		# 	f.write(str(speechLinks))
@@ -39,6 +84,8 @@ class CspanSpider(scrapy.Spider):
 		for url in speechLinks:
 			url = response.urljoin(url)
 			yield scrapy.Request(url, callback=self.parse_speech_page)
+
+		self.driver.quit()
 
 	def write_to_db(self, item):
 		#Write the item's contents into the database

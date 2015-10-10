@@ -29,7 +29,8 @@ cur.execute("""INSERT INTO Candidates (fullName, first, last, middle, party) VAL
 	('Lincoln Chafee', 'Chafee', 'Lincoln','','Democrat'),
 	('Bill de Blasio', 'de Blasio', 'Bill','','Democrat'),
 	('Jim Webb', 'Webb', 'Jim','','Democrat'),
-	('Donald Trump', 'Trump', 'Donald','','Weasel');"""
+	('Donald Trump', 'Trump', 'Donald','','Weasel'),
+	('Mike Huckabee, 'Huckabee', 'Mike', '', 'Republican');"""
 )
 
 
