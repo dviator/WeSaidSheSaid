@@ -152,13 +152,7 @@ class CspanSpider(scrapy.Spider):
 			l.add_value('collectionTime', 'null')
 			l.add_value('city', 'null')
 			l.add_value('state', 'null')
-
-			# call the transcriber class 
-			t = Transcriber()
-			t.transcribe(response.url, "crawler_test_1")
-			speech= t.getSpeech()
-			speech_text = speech['speech']
-			l.add_value('transcription', speech_text)
+			l.add_value('transcription', 'null')
 
 			item = l.load_item()
 
@@ -168,6 +162,12 @@ class CspanSpider(scrapy.Spider):
 			
 			#Write gathered data to the database
 			if item['speaker'] is not None :
+				# call the transcriber class 
+				t = Transcriber()
+				t.transcribe(response.url, "crawler_test_1")
+				speech= t.getSpeech()
+				speech_text = speech['speech']
+				item['transcription'] = speech_text
 				self.write_to_db(item)
 
 

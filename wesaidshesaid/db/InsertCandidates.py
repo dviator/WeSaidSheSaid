@@ -19,7 +19,7 @@ cur.execute("""INSERT INTO Candidates (fullName, first, last, middle, party) VAL
 	('Jeb Bush', 'Bush', 'Jeb','','Republican'),
 	('Jim Gilmore', 'Gilmore', 'Jim','','Republican'),
 	('Lindsey Graham', 'Graham', 'Lindsey','','Republican'),
-	('Mike Huckabeee', 'Huckabee', 'Mike','','Republican'),
+	('Mike Huckabee', 'Huckabee', 'Mike','','Republican'),
 	('Bobby Jindal', 'Jindal', 'Bobby','','Republican'),
 	('George Pataki', 'Pataki', 'George','','Republican'),
 	('Rand Paul', 'Paul', 'Rand','','Republican'),
@@ -29,8 +29,7 @@ cur.execute("""INSERT INTO Candidates (fullName, first, last, middle, party) VAL
 	('Lincoln Chafee', 'Chafee', 'Lincoln','','Democrat'),
 	('Bill de Blasio', 'de Blasio', 'Bill','','Democrat'),
 	('Jim Webb', 'Webb', 'Jim','','Democrat'),
-	('Donald Trump', 'Trump', 'Donald','','Weasel'),
-	('Mike Huckabee, 'Huckabee', 'Mike', '', 'Republican');"""
+	('Donald Trump', 'Trump', 'Donald','','Weasel');"""
 )
 
 
