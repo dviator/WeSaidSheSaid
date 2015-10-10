@@ -63,7 +63,7 @@ class Transcriber:
                 if d['status'] == 'finished':
                     print('Done downloading, now converting ...')
 
-            outputName = WSSS_ROOT + '/Transcriber/data/' + filename
+            outputName = WSSS_ROOT + '/wesaidshesaid/Transcriber/data/' + filename
             ydl_opts = {
                 'logger': MyLogger(),
                 'writesubtitles': True,
@@ -139,7 +139,7 @@ class Transcriber:
                 except ValueError:
                     return False
 
-            temp_dest = WSSS_ROOT + '/Transcriber/data/' + name + '_tmp.srt'
+            temp_dest = WSSS_ROOT + '/wesaidshesaid/Transcriber/data/' + name + '_tmp.srt'
             translate(source, temp_dest)
 
             srt_file = open(temp_dest, 'r')
@@ -248,7 +248,7 @@ class Transcriber:
         #########################################################################
 
         downloadSpeech(url, filename)
-        sentences = truncateSRT(WSSS_ROOT + '/Transcriber/data/' + filename + '.en.dfxp', filename)
+        sentences = truncateSRT(WSSS_ROOT + '/wesaidshesaid/Transcriber/data/' + filename + '.en.dfxp', filename)
         self.SPEECH = cleanUpSpeech(sentences)
         self.URL = url
         self.NAME = filename

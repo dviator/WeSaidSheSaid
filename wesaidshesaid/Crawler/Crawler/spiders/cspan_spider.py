@@ -8,7 +8,7 @@ import os
 import sys
 root = os.environ['WSSS_ROOT']
 print root
-tpath = os.path.join(root, root + '/Transcriber')
+tpath = os.path.join(root, root + '/wesaidshesaid/Transcriber')
 print tpath
 sys.path.insert(0,tpath)
 # import transcriber
