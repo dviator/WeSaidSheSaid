@@ -7,5 +7,5 @@ setup(name='wesaidshesaid',
         authors='Daniel Veenstra, Alex Stein',
         author_emails='danielveenstra@gmail.com, astein.ny@gmail.com',
         license='none',
-        packages='wesaidshesaid',
+        packages=['wesaidshesaid'],
         zip_safe=False)
