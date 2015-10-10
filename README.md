@@ -5,3 +5,5 @@ Instructions
 set WSSS_ROOT=WeSaidSheSaid root 
 e.g. export WSSS_ROOT=`pwd`
 
+To Install Using PIP
+sudo pip install wesaidshesaid

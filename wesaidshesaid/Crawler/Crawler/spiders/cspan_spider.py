@@ -2,9 +2,18 @@ import scrapy
 from scrapy.loader import ItemLoader
 from Crawler.items import CSPANItem
 import psycopg2
-from .transcriber import Transcriber
 from selenium import webdriver
 
+# How to import the transcriber class from the root directory
+import os
+import sys
+root = os.environ['WSSS_ROOT']
+print root
+tpath = os.path.join(root, root + '/wesaidshesaid/Transcriber')
+print tpath
+sys.path.insert(0,tpath)
+# import transcriber
+from transcriber import Transcriber
 
 #Collect a list of valid candidates from the candidates table in the wsss database. 
 conn = psycopg2.connect("dbname=wsss user=wsss")
