@@ -3,6 +3,9 @@ from scrapy.loader import ItemLoader
 from Crawler.items import CSPANItem
 import psycopg2
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait 
+from selenium.webdriver.support import expected_conditions as EC 
 
 # How to import the transcriber class from the root directory
 import os
@@ -47,12 +50,13 @@ class CspanSpider(scrapy.Spider):
 
 		while True:
 			try:
+				element = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.ID, "loadmore")))
 				next = self.driver.find_element_by_id('loadmore')
 				next.click()
 				print "Clicking!"
 				
 				#This break is a shortcut for Development. Comment out to get more videos
-				break
+				#break
 			except:
 				break
 
