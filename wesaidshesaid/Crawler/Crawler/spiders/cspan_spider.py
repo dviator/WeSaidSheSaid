@@ -6,6 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as EC 
+import datetime
 
 # How to import the transcriber class from the root directory
 import os
@@ -101,6 +102,9 @@ class CspanSpider(scrapy.Spider):
 		self.driver.quit()
 
 	def write_to_db(self, item):
+
+		#Convert collected Speech time to formatted Date
+		# item['speechTime'][0]
 		#Write the item's contents into the database
 		conn = psycopg2.connect("dbname=wsss user=wsss")
 
@@ -152,8 +156,11 @@ class CspanSpider(scrapy.Spider):
 			# gather the date of the video
 			l.add_xpath('speechTime', "//div[@class = 'overview']/span[@class = 'time']/time/text()")
 
+			#Get the current time, and set it for collectionTime
+			currentTimestamp = datetime.datetime.now()
+			l.add_value('collectionTime', currentTimestamp)
 			# for now, leave the remaining fields blank
-			l.add_value('collectionTime', 'null')
+			
 			l.add_value('city', 'null')
 			l.add_value('state', 'null')
 			l.add_value('transcription', 'null')

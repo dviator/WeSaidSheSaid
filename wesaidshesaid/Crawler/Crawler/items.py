@@ -18,7 +18,7 @@ class CSPANItem(scrapy.Item):
     transcription = scrapy.Field(input_processor=MapCompose(remove_tags))
     url = scrapy.Field(input_processor=MapCompose(remove_tags))
     speechTime = scrapy.Field(input_processor=MapCompose(remove_tags))
-    collectionTime = scrapy.Field(input_processor=MapCompose(remove_tags))
+    collectionTime = scrapy.Field()
     city = scrapy.Field(input_processor=MapCompose(remove_tags))
     state = scrapy.Field(input_processor=MapCompose(remove_tags))
 
