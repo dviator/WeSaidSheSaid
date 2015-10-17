@@ -21,12 +21,15 @@ from transcriber import Transcriber
 #Collect a list of valid candidates from the candidates table in the wsss database. 
 conn = psycopg2.connect("dbname=wsss user=wsss")
 cur = conn.cursor() 
-cur.execute('SELECT fullName from Candidates;')
+cur.execute('SELECT validNames from Candidates;')
 validCandidates = []
 for record in cur:
-	validCandidates.append(record[0])
+	for array in record:
+		for name in array:
+			print name
+			validCandidates.append(name)
 #print validCandidates
-print validCandidates[0]
+print validCandidates
 conn.commit()
 cur.close()
 conn.close()
