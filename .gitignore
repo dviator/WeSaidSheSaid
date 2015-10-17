@@ -4,5 +4,9 @@
 # Setuptools distribution folder.
 /dist/
 
+# data outputs from transcriber and test
+/wesaidshesaid/Transcriber/data/
+/wesaidshesaid/test/data/
+
 # Python egg metadata, regenerated from source files by setuptools.
 /*.egg-info
