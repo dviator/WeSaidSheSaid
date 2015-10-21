@@ -60,7 +60,7 @@ class CspanSpider(scrapy.Spider):
 				print "Clicking!"
 				
 				#This break is a shortcut for Development. Comment out to get more videos
-				#break
+				break
 			except:
 				break
 
@@ -162,10 +162,13 @@ class CspanSpider(scrapy.Spider):
 			#Get the current time, and set it for collectionTime
 			currentTimestamp = datetime.datetime.now()
 			l.add_value('collectionTime', currentTimestamp)
-			# for now, leave the remaining fields blank
 			
-			l.add_value('city', 'null')
-			l.add_value('state', 'null')
+			#Get the location of the speech, which is brought in the form City, State, Country
+			location = response.xpath("//div[@class = 'video-meta']/div/div[@class = 'details']/div/dl/dt[text() = 'Location:']/following-sibling::dd[1]/text()").extract()
+
+			city, state, country = location[0].split(", ")
+			l.add_value('city', city)
+			l.add_value('state', state)
 			l.add_value('transcription', 'null')
 
 			item = l.load_item()
