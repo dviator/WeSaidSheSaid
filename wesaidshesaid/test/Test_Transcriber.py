@@ -30,9 +30,9 @@ class Test_Transcriber(unittest.TestCase):
 		#Normally commented out
 		# f = open("test/data/HillarySpeechExampleOutput",'w')
 		# f.write(str(TestInstance.SPEECH[0]))
-		
+
 		#Open example file and compare to output.
-		t = open("test/data/HillarySpeechExampleOutput",'r')
+		t = open("test/mockData/HillarySpeechExampleOutput",'r')
 		speechText = t.read()
 		self.assertEquals(str(TestInstance.SPEECH[0]),speechText)
 
@@ -50,7 +50,7 @@ class Test_Transcriber(unittest.TestCase):
 		# x = open("test/data/TrumpFinal.txt","w")
 		# x.write(str(TrumpInstance.SPEECH[0]))
 
-		x = open("test/data/TrumpFinal.txt","r")
+		x = open("test/mockData/TrumpFinal.txt","r")
 		trumpText = x.read()
 		self.assertEquals(str(TrumpInstance.SPEECH[0]),trumpText)
 		
