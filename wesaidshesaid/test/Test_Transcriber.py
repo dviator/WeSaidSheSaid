@@ -26,6 +26,11 @@ class Test_Transcriber(unittest.TestCase):
 		TestInstance.transcribe("http://www.c-span.org/video/?326471-1/hillary-clinton-presidential-campaign-announcement","TestSpeech")
 		self.assertIsNotNone(TestInstance.getSpeech())
 		
+		#Write speech to file (For reprodution and test preparation)
+		#Normally commented out
+		# f = open("test/data/HillarySpeechExampleOutput",'w')
+		# f.write(str(TestInstance.SPEECH[0]))
+		
 		#Open example file and compare to output.
 		t = open("test/data/HillarySpeechExampleOutput",'r')
 		speechText = t.read()
@@ -39,11 +44,17 @@ class Test_Transcriber(unittest.TestCase):
 		TrumpInstance = Transcriber()
 		TrumpInstance.transcribe("http://www.c-span.org/video/?328138-1/donald-trump-town-hall-meeting-rochester-new-hampshire","TrumpTest")
 		self.assertIsNotNone(TrumpInstance.getSpeech())
+
+		#Write speech to file (For reprodution and test preparation)
+		#Normally commented out
+		# x = open("test/data/TrumpFinal.txt","w")
+		# x.write(str(TrumpInstance.SPEECH[0]))
+
 		x = open("test/data/TrumpFinal.txt","r")
 		trumpText = x.read()
 		self.assertEquals(str(TrumpInstance.SPEECH[0]),trumpText)
 		
-		#x.write(str(TrumpInstance.SPEECH[0]))
+		
 	#Needs a teardown method that deletes the files that are created between runs. 
 if __name__ == '__main__':
     unittest.main()
