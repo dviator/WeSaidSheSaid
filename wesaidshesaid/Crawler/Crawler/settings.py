@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import os
+root = os.environ['WSSS_ROOT']
+
 # Scrapy settings for Crawler project
 #
 # For simplicity, this file contains only settings considered important or
@@ -14,7 +17,10 @@ BOT_NAME = 'Crawler'
 SPIDER_MODULES = ['Crawler.spiders']
 NEWSPIDER_MODULE = 'Crawler.spiders'
 
-
+# Logging Settings
+LOG_FILE = root + '/wesaidshesaid/Crawler/Crawler/spiders/logs/cspan_spider.log'
+LOG_ENABLED = True
+LOG_STDOUT = True
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'Crawler (+http://www.yourdomain.com)'
 
