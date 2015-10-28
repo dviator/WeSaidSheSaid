@@ -5,8 +5,8 @@ conn = psycopg2.connect("dbname=wsss user=wsss")
 cur = conn.cursor()
 
 cur.execute("""CREATE TABLE IF NOT EXISTS Speeches (
-	url	varchar(100) primary key,
-	title varchar(100),
+	url	varchar(200) primary key,
+	title varchar(200),
 	speaker varchar(50),
 	transcription text,
 	collectionTime timestamp(0),
