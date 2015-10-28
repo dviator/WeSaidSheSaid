@@ -40,7 +40,9 @@ class CspanSpider(scrapy.Spider):
 	start_urls = ["http://www.c-span.org/search/?searchtype=Videos&sort=Most+Recent+Airing&all[]=presidential&all[]=campaign&all[]=speech"]
 
 	def __init__(self):
-		self.driver = webdriver.Firefox()
+		### for debug uncomment the below line to see web browser clicking through, and comment phantomJS
+		# self.driver = webdriver.Firefox()
+		self.driver = webdriver.PhantomJS()
 
 		### Exterior Print statements moved here for use of logger
 		self.logger.debug("root is: " + str(root))
