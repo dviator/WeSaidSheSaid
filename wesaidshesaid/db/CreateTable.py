@@ -23,6 +23,12 @@ cur.execute("""CREATE TABLE IF NOT EXISTS Candidates (
 	party varchar(25));"""
 	)
 
+cur.execute("""CREATE TABLE IF NOT EXISTS RunStats (
+	recordID serial primary key,
+	url varchar(200),
+	speaker varchar(200),
+	match boolean);"""
+)
 
 conn.commit()
 

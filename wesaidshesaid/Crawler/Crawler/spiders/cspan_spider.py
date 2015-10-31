@@ -41,7 +41,7 @@ class CspanSpider(scrapy.Spider):
 
 	def __init__(self):
 		### for debug uncomment the below line to see web browser clicking through, and comment phantomJS
-		# self.driver = webdriver.Firefox()
+		#self.driver = webdriver.Firefox()
 		self.driver = webdriver.PhantomJS()
 
 		### Exterior Print statements moved here for use of logger
@@ -124,14 +124,26 @@ class CspanSpider(scrapy.Spider):
 		conn.close()
 		pass
 
+	def write_stats_to_db(self, url, speaker, result):
+		conn = psycopg2.connect("dbname=wsss user=wsss")
+		cur = conn.cursor()
+		cur.execute('INSERT INTO RunStats (url, speaker, match) VALUES (%s, %s, %s)', (url, speaker, result))
+
+		conn.commit()
+		cur.close()
+		conn.close()
+		pass
+
 	#Method to validate that the video features a speaker from our candidates list
 	#Takes in a list of speakers from a video, returns the first speaker name that matches. If a match does not exist returns None
-	def validate_speaker(self, speakers):
-		for speaker in speakers:
+	def validate_speaker(self, item):
+		for speaker in item['speaker']:
 			if speaker in validCandidates:
+				self.write_stats_to_db(item['url'],speaker,True)
 				self.logger.debug(str(speaker) + " matches!")
 				return speaker
 			else:
+				self.write_stats_to_db(item['url'],speaker,False)
 				self.logger.debug(str(speaker) + " doesn't match!")
 		return None
 
@@ -178,7 +190,7 @@ class CspanSpider(scrapy.Spider):
 			item = l.load_item()
 
 			#Validate that the item contains a speaker we're interested in.
-			item['speaker'] = self.validate_speaker(item['speaker'])
+			item['speaker'] = self.validate_speaker(item)
 			self.logger.debug("speaker is: " + str(item['speaker']))
 			
 			#Write gathered data to the database
