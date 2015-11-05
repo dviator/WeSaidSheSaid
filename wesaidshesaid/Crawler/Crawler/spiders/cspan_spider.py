@@ -37,76 +37,44 @@ conn.close()
 class CspanSpider(scrapy.Spider):
 	name = "cspan"
 	allowed_domains = ["c-span.org"]
-	start_urls = ["http://www.c-span.org/search/?searchtype=Videos&sort=Most+Recent+Airing&all[]=presidential&all[]=campaign&all[]=speech"]
+	start_urls = ["http://www.c-span.org/search/?sdate=&edate=&searchtype=Videos&sort=Most+Recent+Airing&text=0&all[]=presidential&all[]=campaign&all[]=speech&show100="]
 
 	def __init__(self):
-		### for debug uncomment the below line to see web browser clicking through, and comment phantomJS
-		#self.driver = webdriver.Firefox()
-		self.driver = webdriver.PhantomJS()
-
 		### Exterior Print statements moved here for use of logger
 		self.logger.debug("root is: " + str(root))
 		self.logger.debug("tpath is: " + str(tpath))
 
 	def parse(self, response):
-		#With selenium, click the show more videos button until it is no longer possible to do so. 
-		#Then pass that page as the input for the rest of scrapy's activities
-		self.driver.get(response.url)
-
-		next = self.driver.find_element_by_id('search-results-limit-100')
-		next.click()
-
-		while True:
-			try:
-				element = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.ID, "loadmore")))
-				next = self.driver.find_element_by_id('loadmore')
-				next.click()
-				self.logger.debug("Clicking!")
-				
-				#This break is a shortcut for Development. Comment out to get more videos
-				break
-			except:
-				break
-
 		self.logger.debug("Scrapy URL is: " + str(response.url))
-
 		
-		url = self.driver.current_url
+		raw_link = "http://www.c-span.org/search/?sdate=&edate=&searchtype=Videos&sort=Most+Recent+Airing&text=0&all[]=presidential&all[]=campaign&all[]=speech&show100=&sdate=&edate=&searchtype=Videos&sort=Most+Recent+Airing&text=0&all[]=presidential&all[]=campaign&all[]=speech&ajax&page="
 
-		self.logger.debug("Selenium URL is: " +  str(url))
-
-		# with open("seleniumResponse.txt", 'wb') as f:
-		# 	f.write(Seleniumresponse.encode('utf-8'))
-
+		num_vids = response.css('.showing').xpath('./text()').extract()[0].rstrip().split(' ')[-1].replace(',','')
+		self.logger.debug("number of videos is: " + str(num_vids))
+		num_pages = int(int(num_vids)/100)
+		#use calculated increment to loop through individual pages of 100 videos
+		yield scrapy.Request(response.url, callback=self.parse_links)
 		
+		for x in range(2,num_pages):
+			url = raw_link + str(x)
+			yield scrapy.Request(url, callback=self.parse_links)
 
-		# filename = response.url.split("/")[-2] + '.html'
-		# self.logger.debug(filename)
-		# with open(filename, 'wb') as f:
-		# 	f.write(response.body)
+	def parse_links(self, response):
+		#Generate a new crawl request for each link followed that treats them as speech videos. 
 		speechLinks = []
-		#Extract from the selenium page source instead
-		speechLinkElements = self.driver.find_elements_by_xpath('//section/ul/li/a')
+		speechLinkElements = response.css(".onevid").xpath("./a/@href").extract()
 		self.logger.debug("Elements list is " + str(speechLinkElements))
 		for s in speechLinkElements:
-			#self.logger.debug("Attribute is: ", s.get_attribute('href'))
-			speechLinks.append(s.get_attribute('href'))
+			speechLinks.append(s)
 
 		self.logger.debug("Number of Links is: " + str(len(speechLinks)))
 
 		#Extract the links to the search results on the page.
-		#speechLinks = response.xpath('//section/ul/li/a/@href').extract()
-		# self.logger.debug(speechLinks)
-		# with open("links.txt", 'wb') as f:
-		# 	f.write(str(speechLinks))
 		self.logger.debug(speechLinks)
 
-		#Generate a new crawl request for each link followed that treats them as speech videos. 
 		for url in speechLinks:
 			url = response.urljoin(url)
-			yield scrapy.Request(url, callback=self.parse_speech_page)
-
-		self.driver.quit()
+			yield scrapy.Request(url, callback=self.parse_speech_page)		
 
 	def write_to_db(self, item):
 
