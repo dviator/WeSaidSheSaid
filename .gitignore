@@ -4,6 +4,9 @@
 # Do not include logs
 *.log
 
+# Do not include .txt file output
+*.txt
+
 # Setuptools distribution folder.
 /dist/
 

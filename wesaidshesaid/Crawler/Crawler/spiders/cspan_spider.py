@@ -1,12 +1,13 @@
+from __future__ import print_function
 import scrapy
 from scrapy.loader import ItemLoader
 from Crawler.items import CSPANItem
 import psycopg2
 import logging
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait 
-from selenium.webdriver.support import expected_conditions as EC 
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.ui import WebDriverWait 
+# from selenium.webdriver.support import expected_conditions as EC 
 import datetime
 
 # How to import the transcriber class from the root directory
@@ -168,8 +169,17 @@ class CspanSpider(scrapy.Spider):
 				t.transcribe(response.url, "crawler_test_1")
 				speech= t.getSpeech()
 				speech_text = speech['speech']
+				speech_text_copy = speech_text
 				item['transcription'] = speech_text
 				self.write_to_db(item)
+				title = item['title'][0]
+				title = title.replace(" ", "_")
+				filename = title + ".txt"
+				self.logger.debug("filename is: " + filename)
+				f = open(root + "/wesaidshesaid/speeches/" + filename, 'w')
+				f.write(str(speech_text_copy))
+				f.close()
+
 
 
 		#Call Transcriber class

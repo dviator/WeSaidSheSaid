@@ -7,6 +7,11 @@ then
     rm ./wesaidshesaid/Crawler/Crawler/spiders/logs/cspan_spider.log
 fi
 
+if [ "$(ls -A "./wesaidshesaid/speeches/")" ]
+then
+    rm ./wesaidshesaid/speeches/*
+fi
+
 echo Running Crawler in Background.
 pushd ./wesaidshesaid/Crawler > /dev/null
 scrapy crawl cspan &
