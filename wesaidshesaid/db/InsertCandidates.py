@@ -18,22 +18,21 @@ data = (
 	('Hillary Rodham Clinton', ['Hillary Rodham Clinton', 'Hillary Clinton'], 'Clinton', 'Hillary', 'Rodham', 'Democrat'),
 	('John R. Kasich', ['John R. Kasich', 'Governor John R. Kasich', 'John Kasich', 'Governor John Kasich'], 'Kasich', 'John', 'R.', 'Republican'),
 	('Chris Christie', ['Chris Christie', 'Governor Chris Christie'], 'Christie', 'Chris','','Republican'),
-	('Ben Carson', ['Ben Carson', 'Benjamin Carson, Sr.', 'Dr. Ben Carson', 'Ben Carson, M.D.'], 'Carson', 'Ben','','Republican'),
+	('Ben Carson', ['Ben Carson', 'Benjamin Carson, Sr.', 'Dr. Ben Carson', 'Ben Carson, M.D.','Ben Carson Sr., M.D.'], 'Carson', 'Ben','','Republican'),
 	('Jeb Bush', ['Jeb Bush'], 'Bush', 'Jeb','','Republican'),
-	('Jim Gilmore', ['Jim Gilmore'], 'Gilmore', 'Jim','','Republican'),
+	('Jim Gilmore', ['Jim Gilmore','Jim Gilmore III'], 'Gilmore', 'Jim','','Republican'),
 	('Lindsey Graham', ['Lindsey Graham'], 'Graham', 'Lindsey','','Republican'),
 	('Mike Huckabee', ['Mike Huckabee'], 'Huckabee', 'Mike','','Republican'),
 	('Bobby Jindal', ['Bobby Jindal'], 'Jindal', 'Bobby','','Republican'),
-	('George Pataki', ['George Pataki'], 'Pataki', 'George','','Republican'),
-	('Rand Paul', ['Rand Paul'], 'Paul', 'Rand','','Republican'),
+	('George Pataki', ['George Pataki','George E. Pataki'], 'Pataki', 'George','','Republican'),
+	('Rand Paul', ['Rand Paul','Rand Paul M.D.'], 'Paul', 'Rand','','Republican'),
 	('Rick Perry', ['Rick Perry'], 'Perry', 'Rick','','Republican'),
 	('Rick Santorum', ['Rick Santorum'], 'Santorum', 'Rick','','Republican'),
-	('Joe Biden', ['Joe Biden'], 'Biden', 'Joe','','Democrat'),
 	('Lincoln Chafee', ['Lincoln Chafee'], 'Chafee', 'Lincoln','','Democrat'),
 	('Donald Trump', ['Donald Trump', 'The Don', 'Sir Trump', 'His Trumpness', 'Donald J. Trump'], 'Trump', 'Donald','','Weasel'),
 	("Martin J. O'Malley", ["Martin O'Malley", "Martin J. O'Malley"], "O'Malley", 'Martin','J.','Democrat'),
 	('Jim Webb', ['Jim Webb'], 'Webb', 'Jim','','Democrat'),
-	('Bill de Blasio', ['Bill de Blasio'], 'de Blasio', 'Bill','','Democrat')
+	('Rand Paul', ['Rand Paul M.D.'], 'Paul', 'Rand','','Republican')
 	)
 cur.executemany(query, data)
 
