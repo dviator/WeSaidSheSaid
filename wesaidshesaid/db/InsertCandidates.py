@@ -30,8 +30,8 @@ data = (
 	('Rick Santorum', ['Rick Santorum'], 'Santorum', 'Rick','','Republican'),
 	('Joe Biden', ['Joe Biden'], 'Biden', 'Joe','','Democrat'),
 	('Lincoln Chafee', ['Lincoln Chafee'], 'Chafee', 'Lincoln','','Democrat'),
-	('Donald Trump', ['Donald Trump', 'The Don', 'Sir Trump', 'His Trumpness'], 'Trump', 'Donald','','Weasel'),
-	("Martin J. O'Malley", ["Martin O'Malley"], "O'Malley", 'Martin','J.','Democrat'),
+	('Donald Trump', ['Donald Trump', 'The Don', 'Sir Trump', 'His Trumpness', 'Donald J. Trump'], 'Trump', 'Donald','','Weasel'),
+	("Martin J. O'Malley", ["Martin O'Malley", "Martin J. O'Malley"], "O'Malley", 'Martin','J.','Democrat'),
 	('Jim Webb', ['Jim Webb'], 'Webb', 'Jim','','Democrat'),
 	('Bill de Blasio', ['Bill de Blasio'], 'de Blasio', 'Bill','','Democrat')
 	)
