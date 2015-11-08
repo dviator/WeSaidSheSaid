@@ -2,7 +2,10 @@
 
 echo Cleaning Database.
 python ./wesaidshesaid/db/CleanDatabase.py
-rm ./wesaidshesaid/Crawler/Crawler/spiders/logs/*
+if [ -e "./wesaidshesaid/Crawler/Crawler/spiders/logs/cspan_spider.log" ]
+then
+    rm ./wesaidshesaid/Crawler/Crawler/spiders/logs/cspan_spider.log
+fi
 
 echo Running Crawler in Background.
 pushd ./wesaidshesaid/Crawler > /dev/null
