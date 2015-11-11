@@ -31,8 +31,7 @@ data = (
 	('Lincoln Chafee', ['Lincoln Chafee'], 'Chafee', 'Lincoln','','Democrat'),
 	('Donald Trump', ['Donald Trump', 'The Don', 'Sir Trump', 'His Trumpness', 'Donald J. Trump'], 'Trump', 'Donald','','Weasel'),
 	("Martin J. O'Malley", ["Martin O'Malley", "Martin J. O'Malley"], "O'Malley", 'Martin','J.','Democrat'),
-	('Jim Webb', ['Jim Webb'], 'Webb', 'Jim','','Democrat'),
-	('Rand Paul', ['Rand Paul M.D.'], 'Paul', 'Rand','','Republican')
+	('Jim Webb', ['Jim Webb'], 'Webb', 'Jim','','Democrat')
 	)
 cur.executemany(query, data)
 

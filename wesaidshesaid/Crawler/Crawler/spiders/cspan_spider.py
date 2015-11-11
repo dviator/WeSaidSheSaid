@@ -110,12 +110,30 @@ class CspanSpider(scrapy.Spider):
 			if speaker in validCandidates:
 				self.write_stats_to_db(item['url'],speaker,True)
 				self.logger.debug(str(speaker) + " matches!")
-				return speaker
+				#Get the standard name for a candidate by looking it up in the candidates table
+				fullName = self.normalize_speaker_name(speaker)
+				self.logger.debug("fullName grabbed from db is " + str(fullName))
+				return fullName
 			else:
 				self.write_stats_to_db(item['url'],speaker,False)
 				self.logger.debug(str(speaker) + " doesn't match!")
 		return None
 
+
+	def normalize_speaker_name(self, speaker):
+		conn = psycopg2.connect("dbname=wsss user=wsss")
+		cur = conn.cursor()
+
+		#Reference the matched speaker name against the standard fullName stored in the database
+		cur.execute('SELECT fullname from Candidates where %s = ANY (validnames);', (speaker,))
+		fullName = cur.fetchone()
+		self.logger.debug("fullName =" + str(fullName))
+
+		conn.commit()
+		cur.close()
+		conn.close()
+
+		return fullName[0]
 
 	#This function handles those pages which are sent as candidates for presidential campaign speeches.
 	def parse_speech_page(self, response):
